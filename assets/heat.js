@@ -29,8 +29,8 @@
   var pal = (function () {
     var c = document.createElement('canvas'); c.width = 256; c.height = 1; var x = c.getContext('2d');
     var g = x.createLinearGradient(0, 0, 256, 0);
-    g.addColorStop(0, 'rgba(200,16,46,0)'); g.addColorStop(.18, 'rgba(200,16,46,.28)');
-    g.addColorStop(.45, 'rgba(200,16,46,.72)'); g.addColorStop(.72, 'rgba(255,140,155,.88)');
+    g.addColorStop(0, 'rgba(0,87,184,0)'); g.addColorStop(.18, 'rgba(0,87,184,.28)');
+    g.addColorStop(.45, 'rgba(0,87,184,.72)'); g.addColorStop(.72, 'rgba(120,175,240,.88)');
     g.addColorStop(1, 'rgba(255,255,255,.96)');
     x.fillStyle = g; x.fillRect(0, 0, 256, 1); return x.getImageData(0, 0, 256, 1).data;
   })();
@@ -83,7 +83,7 @@
     H.grid.forEach(function (row, r) { row.forEach(function (c, k) {
       var n = c[0] + c[1], sh = n ? c[0] / n : .5, fill;
       if (n < 8) fill = 'rgba(255,255,255,.02)';
-      else if (sh >= .5) fill = 'rgba(200,16,46,' + (0.1 + (sh - .5) * 1.7).toFixed(2) + ')';
+      else if (sh >= .5) fill = 'rgba(0,87,184,' + (0.1 + (sh - .5) * 1.7).toFixed(2) + ')';
       else fill = 'rgba(201,209,222,' + (0.05 + (.5 - sh) * 1.1).toFixed(2) + ')';
       svg('rect', {x: k * cw + .25, y: r * rh + .25, width: cw - .5, height: rh - .5, rx: .8, fill: fill, class: 'zone'}, zoneG);
       var tx = svg('text', {x: k * cw + cw / 2, y: r * rh + rh / 2 + 1.4, class: 'zpct' + (sh < .5 ? ' opp' : ''), 'text-anchor': 'middle'}, zoneG);
